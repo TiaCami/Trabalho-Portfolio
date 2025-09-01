@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!--Sobre mim -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio — Sobre mim</title>
+  <meta name="description" content="Portfólio pessoal — Sobre mim, formação, projetos e contato." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Header comum -->
+<header class="header" role="banner">
+  <div class="container navbar">
+    <a class="brand" href="index.html" aria-label="Voltar para a página inicial">
+      <span class="avatar" aria-hidden="true">C</span>
+      <span>Inicio</span>
+    </a>
+
+    <!-- Botão de menu (mobile) -->
+    <button id="btn-menu" aria-label="Abrir menu" style="
+      background: transparent; border: 1px solid rgba(148,163,184,.35);
+      color: var(--text); padding:.5rem .7rem; border-radius:.7rem; display:none;
+    ">&#9776;</button>
+
+    <nav class="nav-links" id="nav-links" aria-label="Menu principal">
+      <a href="index.html">Sobre mim</a>
+      <a href="formacao.html">Formação</a>
+      <a href="portfolio.html">Portfólio</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+// botão hamburger
+const mq = window.matchMedia('(max-width: 900px)');
+function handleMQ(e){
+  const btn = document.getElementById('btn-menu');
+  const nav = document.getElementById('nav-links');
+  if (!btn || !nav) return;
+  if (e.matches) {
+    btn.style.display = 'inline-block';
+    nav.classList.add('stack');
+  } else {
+    btn.style.display = 'none';
+    nav.classList.remove('stack');
+    nav.classList.remove('open');
+  }
+}
+mq.addEventListener('change', handleMQ);
+handleMQ(mq);
+</script>
+
+<style>
+/* Estilo do menu (mobile) */
+.nav-links.stack {
+  position: absolute; right: 4%; top: 62px;
+  background: rgba(17,24,39,.95);
+  border: 1px solid rgba(148,163,184,.3);
+  padding: .6rem; border-radius: .9rem;
+  display: none; flex-direction: column; width: 220px;
+}
+.nav-links.stack.open { display: flex; }
+.nav-links.stack a { width: 100%; }
+</style>
+
+
+  <main class="section">
+    <div class="container">
+      <section class="hero">
+        <!-- Imagem de perfil -->
+        <img src="img/profile.svg" alt="Foto de perfil" loading="lazy">
+
+        <div>
+          <h1>Olá, eu sou a <span style="color:var(--primary)">Camila</span> 👋</h1>
+          <p>Sou estudante de Análise e Desenvolvimento de Sistemas e tenho experiência em limpeza e tratamento de dados, visualização de informações e construção de dashboards interativos.</p>
+          <div class="kpis">
+            <div class="kpi"><strong>+5</strong> Projetos</div>
+            <div class="kpi"><strong>Módulo B</strong> Fase II</div>
+            <div class="kpi"><strong>+150</strong> Pokemons capturados</div>
+          </div>
+          <p class="muted">Neste portfólio você encontra um pouco sobre mim, minha formação, projetos e como falar comigo.</p>
+          <a class="btn" href="portfolio.html">Ver Portfólio</a>
+        </div>
+      </section>
+
+      <section class="grid cols-2">
+        <article class="card">
+          <h2>Sobre mim</h2>
+          <p>Sou curiosa e adoro resolver problemas com dados. Nos tempos livres, curto ler, jogar e fazer caminhadas.</p>
+          <ul class="list">
+            <li><span>🧠 Interesses</span><span class="muted">Power BI, Machine Learning, dashboards, SQL.</span></li>
+            <li><span>🛠️ Tecnologias</span><span class="muted">Python, Power BI, Excel, Data Studio.</span></li>
+            <li><span>🌎 Idiomas</span><span class="muted">Português (nativo), Inglês (intermediário).</span></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Objetivo profissional</h2>
+          <p>Atuar em projetos de Ciência de Dados, utilizando Python, SQL e ferramentas de visualização.</p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="center">
+      © <span id="year"></span> Camila — Portfólio. Feito com HTML, CSS e JavaScript.
+      <span class="spacer"></span>
+      <a href="contato.html">Fale comigo</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Página de Formação -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio — Formação</title>
+  <meta name="description" content="Formação acadêmica, cursos e idiomas." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Header -->
+<header class="header" role="banner">
+  <div class="container navbar">
+    <a class="brand" href="index.html" aria-label="Voltar para a página inicial">
+      <span class="avatar" aria-hidden="true">C</span>
+      <span>Inicio</span>
+    </a>
+
+    <!-- menu(mobile) -->
+    <button id="btn-menu" aria-label="Abrir menu" style="
+      background: transparent; border: 1px solid rgba(148,163,184,.35);
+      color: var(--text); padding:.5rem .7rem; border-radius:.7rem; display:none;
+    ">&#9776;</button>
+
+    <nav class="nav-links" id="nav-links" aria-label="Menu principal">
+      <a href="index.html">Sobre mim</a>
+      <a href="formacao.html">Formação</a>
+      <a href="portfolio.html">Portfólio</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+// botão hamburger
+const mq = window.matchMedia('(max-width: 900px)');
+function handleMQ(e){
+  const btn = document.getElementById('btn-menu');
+  const nav = document.getElementById('nav-links');
+  if (!btn || !nav) return;
+  if (e.matches) {
+    btn.style.display = 'inline-block';
+    nav.classList.add('stack');
+  } else {
+    btn.style.display = 'none';
+    nav.classList.remove('stack');
+    nav.classList.remove('open');
+  }
+}
+mq.addEventListener('change', handleMQ);
+handleMQ(mq);
+</script>
+
+<style>
+/* Estilo do menu(mobile) */
+.nav-links.stack {
+  position: absolute; right: 4%; top: 62px;
+  background: rgba(17,24,39,.95);
+  border: 1px solid rgba(148,163,184,.3);
+  padding: .6rem; border-radius: .9rem;
+  display: none; flex-direction: column; width: 220px;
+}
+.nav-links.stack.open { display: flex; }
+.nav-links.stack a { width: 100%; }
+</style>
+
+
+  <main class="section">
+    <div class="container">
+      <h1>Formação</h1>
+      <p class="muted">Aqui você encontra minha trajetória acadêmica e cursos complementares.</p>
+
+      <section class="grid cols-2">
+        <article class="card">
+          <h2>Acadêmica</h2>
+          <ul class="list">
+            <li><span><strong>ADS</strong> — Uninter</span><span class="muted">2025–2027</span></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Cursos & Certificações</h2>
+          <ul class="list">
+            <li><span>SQL Para análise de dados</span><span class="muted">1.460h</span></li>
+            <li><span>Análise de dados</span><span class="muted">6.570h</span></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="grid cols-2">
+        <article class="card">
+          <h2>Idiomas</h2>
+          <ul class="list">
+            <li><span>Português</span><span class="muted">Nativo</span></li>
+            <li><span>Inglês</span><span class="muted">Intermediário</span></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Atividades</h2>
+          <p>Atualmente atuo desenvolvendo dashboards e análises de dados que apoiam a tomada de decisão da equipe. Utilizo ferramentas como App Sheets (Google), Excel avançado, Looker Studio e Power BI para tratar, organizar e visualizar dados, transformando informações brutas em insights estratégicos que ajudam a melhorar processos e resultados.</p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="center">
+      © <span id="year"></span> Camila — Portfólio. Feito com HTML, CSS e JavaScript.
+      <span class="spacer"></span>
+      <a href="contato.html">Fale comigo</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
